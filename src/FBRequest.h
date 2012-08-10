@@ -381,6 +381,27 @@ typedef NSUInteger FBRequestState __attribute__((deprecated));
  @method
  
  @abstract
+ Creates a request representing a Graph API call to upload a video using the active session.
+ 
+ @discussion
+ Simplifies preparing a request to post a video.
+ 
+ To post a video, get the `FBRequest` returned from this method
+ call, then modify the request parameters by adding the description to a "description" key.
+ 
+ This method does not initialize an <FBRequestConnection> object. To initiate the API
+ call first instantiate an <FBRequestConnection> object, add the request to this object,
+ then call the `start` method on the connection instance.
+ 
+ @param video            An `NSData` containing the video to upload.
+ */
+
++ (FBRequest *)requestForUploadVideo:(NSData *)video;
+
+/*!
+ @method
+
+ @abstract
  Creates a request representing a status update.
  
  @discussion
